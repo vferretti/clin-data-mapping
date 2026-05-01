@@ -1,0 +1,955 @@
+{
+  "resourceType": "Bundle",
+  "id": "937b2b8d-5c01-4cde-806f-6dec0b858e20",
+  "meta": {
+    "lastUpdated": "2026-05-01T18:45:22.904+00:00"
+  },
+  "type": "searchset",
+  "link": [ {
+    "relation": "self",
+    "url": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Patient?_id=11823804&_include=*&_pretty=true&_revinclude=*"
+  } ],
+  "entry": [ {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Patient/11823804",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "11823804",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          } ]
+        },
+        "value": "98744556",
+        "assigner": {
+          "reference": "Organization/CHUSJ"
+        }
+      } ],
+      "gender": "male",
+      "managingOrganization": {
+        "reference": "Organization/CHUSJ"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/ClinicalImpression/11823828",
+    "resource": {
+      "resourceType": "ClinicalImpression",
+      "id": "11823828",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "extension": [ {
+        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/age-at-event",
+        "valueAge": {
+          "value": 23588,
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        }
+      } ],
+      "status": "completed",
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "investigation": [ {
+        "code": {
+          "text": "Examination / signs"
+        },
+        "item": [ {
+          "reference": "Observation/11823810"
+        }, {
+          "reference": "Observation/11823811"
+        }, {
+          "reference": "Observation/11823813"
+        }, {
+          "reference": "Observation/11823814"
+        }, {
+          "reference": "Observation/11823815"
+        }, {
+          "reference": "Observation/11823816"
+        }, {
+          "reference": "Observation/11823817"
+        }, {
+          "reference": "Observation/11823818"
+        }, {
+          "reference": "Observation/11823819"
+        }, {
+          "reference": "Observation/11823820"
+        }, {
+          "reference": "Observation/11823821"
+        }, {
+          "reference": "Observation/11823822"
+        }, {
+          "reference": "Observation/11823827"
+        }, {
+          "reference": "FamilyMemberHistory/11823812"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/AuditEvent/11823830",
+    "resource": {
+      "resourceType": "AuditEvent",
+      "id": "11823830",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:27.764+00:00"
+      },
+      "action": "C",
+      "recorded": "2026-05-01T18:43:27.764+00:00",
+      "outcome": "0",
+      "agent": [ {
+        "who": {
+          "reference": "Practitioner/UR00001"
+        },
+        "name": "Vincent Ferretti"
+      } ],
+      "entity": [ {
+        "what": {
+          "reference": "Patient/11823804/_history/1"
+        },
+        "type": {
+          "system": "https://www.hl7.org/fhir/valueset-audit-entity-type.html",
+          "code": "Patient"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823827",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823827",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "social-history",
+          "display": "Social History"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "MFTH",
+          "display": "Missing Father"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "effectivePeriod": {
+        "start": "2026-05-01T18:43:18+00:00"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/missing-parent-status",
+          "code": "NEVER",
+          "display": "Permanent absence"
+        } ]
+      },
+      "note": [ {
+        "text": "Décédé"
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest/11823806",
+    "resource": {
+      "resourceType": "ServiceRequest",
+      "id": "11823806",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-analysis-request" ],
+        "security": [ {
+          "code": "CHUSJ"
+        }, {
+          "code": "LDM-CHUSJ"
+        } ]
+      },
+      "extension": [ {
+        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/project",
+        "extension": [ {
+          "url": "project",
+          "valueString": "PRAGMatIQ"
+        } ]
+      }, {
+        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/family-member",
+        "extension": [ {
+          "url": "parent",
+          "valueReference": {
+            "reference": "Patient/11823805"
+          }
+        }, {
+          "url": "parent-relationship",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "MTH",
+              "display": "mother"
+            } ]
+          }
+        } ]
+      } ],
+      "status": "on-hold",
+      "intent": "order",
+      "priority": "routine",
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+          "code": "RGDI",
+          "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+        }, {
+          "system": "https://www.msss.gouv.qc.ca/repertoires/biomed",
+          "code": "55360"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "authoredOn": "2026-05-01T18:43:18+00:00",
+      "requester": {
+        "reference": "PractitionerRole/URR000011"
+      },
+      "performer": [ {
+        "reference": "Organization/LDM-CHUSJ"
+      } ],
+      "supportingInfo": [ {
+        "reference": "ClinicalImpression/11823828"
+      }, {
+        "reference": "ClinicalImpression/11823829"
+      } ],
+      "note": [ {
+        "authorReference": {
+          "reference": "Practitioner/UR00001"
+        },
+        "time": "2026-05-01T18:43:18+00:00",
+        "text": "Voici un commentaire administratif sur cette prescription"
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest/11823807",
+    "resource": {
+      "resourceType": "ServiceRequest",
+      "id": "11823807",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-sequencing-request" ],
+        "security": [ {
+          "code": "CHUSJ"
+        }, {
+          "code": "LDM-CHUSJ"
+        } ]
+      },
+      "basedOn": [ {
+        "reference": "ServiceRequest/11823806"
+      } ],
+      "status": "on-hold",
+      "intent": "order",
+      "priority": "routine",
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+          "code": "RGDI",
+          "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+        }, {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/sequencing-request-code",
+          "code": "75020",
+          "display": "Normal Exome Sequencing"
+        }, {
+          "system": "https://www.msss.gouv.qc.ca/repertoires/biomed",
+          "code": "55360"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "authoredOn": "2026-05-01T18:43:18+00:00",
+      "requester": {
+        "reference": "PractitionerRole/URR000011"
+      },
+      "performer": [ {
+        "reference": "Organization/LDM-CHUSJ"
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/FamilyMemberHistory/11823812",
+    "resource": {
+      "resourceType": "FamilyMemberHistory",
+      "id": "11823812",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd"
+      },
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/11823804"
+      },
+      "relationship": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/fmh-relationship-plus",
+          "code": "PGRFTH",
+          "display": "Paternal Grandfather"
+        } ]
+      },
+      "note": [ {
+        "text": "cancer"
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823813",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823813",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "ETHN",
+          "display": "Ethnicity"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/qc-ethnicity",
+          "code": "CA-FR",
+          "display": "French Canadian"
+        }, {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/qc-ethnicity",
+          "code": "LAT-AM",
+          "display": "Hispanic and Latino American"
+        } ]
+      }
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823814",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823814",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "CONS",
+          "display": "Consanguinity"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueBoolean": true
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823815",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823815",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "extension": [ {
+        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/age-at-onset",
+        "valueCoding": {
+          "code": "HP:0011463"
+        }
+      } ],
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "PHEN",
+          "display": "Clinical Sign (HPO)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/hp",
+          "code": "HP:0012443"
+        } ]
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "POS",
+          "display": "Positive"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Organization/CHUSJ",
+    "resource": {
+      "resourceType": "Organization",
+      "id": "CHUSJ",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-01-16T02:13:25.425+00:00",
+        "source": "#4e9616b0acdcfdda",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/Organization" ]
+      },
+      "type": [ {
+        "coding": [ {
+          "code": "prov",
+          "display": "Healthcare Provider"
+        } ]
+      } ],
+      "name": "Centre hospitalier universitaire Sainte-Justine",
+      "alias": [ "CHUSJ" ],
+      "contact": [ {
+        "telecom": [ {
+          "system": "email"
+        }, {
+          "system": "phone"
+        }, {
+          "system": "fax"
+        } ],
+        "address": {
+          "text": "3175, Côte Sainte-Catherine, Montréal, Québec, H3T 1C5"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Person/11823809",
+    "resource": {
+      "resourceType": "Person",
+      "id": "11823809",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd"
+      },
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "JHN",
+            "display": "Jurisdictional health number (Canada)"
+          } ]
+        },
+        "value": "BERA61100114"
+      } ],
+      "name": [ {
+        "family": "Bertrand",
+        "given": [ "Arthur" ]
+      } ],
+      "gender": "male",
+      "birthDate": "1961-10-01",
+      "link": [ {
+        "target": {
+          "reference": "Patient/11823804"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823810",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823810",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "DSTA",
+          "display": "Patient Disease Status"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+          "code": "RGDI",
+          "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+        } ]
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "POS",
+          "display": "Positive"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823811",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823811",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "INDIC",
+          "display": "Indication"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueString": "Ceci est une hypothèse diagnostique"
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823820",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823820",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "procedure",
+          "display": "Procedure"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "CGH",
+          "display": "Comparative Genomic Hybridization"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "code": "CNV1"
+        } ]
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "A",
+          "display": "Abnormal"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823821",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823821",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "procedure",
+          "display": "Procedure"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "TSXF",
+          "display": "Fragile X Syndrome Testing"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "N",
+          "display": "Normal"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823822",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823822",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "INVES",
+          "display": "Investigation"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueString": "radiographie anormale (autre examen paraclinique)"
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823816",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823816",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "extension": [ {
+        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/age-at-onset",
+        "valueCoding": {
+          "code": "HP:0011463"
+        }
+      } ],
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "PHEN",
+          "display": "Clinical Sign (HPO)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/hp",
+          "code": "HP:0001250"
+        } ]
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "POS",
+          "display": "Positive"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823817",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823817",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "PHEN",
+          "display": "Clinical Sign (HPO)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/hp",
+          "code": "HP:0100829"
+        } ]
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "NEG",
+          "display": "Negative"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823818",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823818",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "OBSG",
+          "display": "General Observation"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "valueString": "ceci est un commentaire clinique général"
+    },
+    "search": {
+      "mode": "include"
+    }
+  }, {
+    "fullUrl": "https://fhir-blue.qa.cqgc.hsj.rtss.qc.ca/fhir/Observation/11823819",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "11823819",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-05-01T18:43:26.072+00:00",
+        "source": "#a608bdaaf068e8dd",
+        "profile": [ "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-observation" ],
+        "security": [ {
+          "code": "CHUSJ"
+        } ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "procedure",
+          "display": "Procedure"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/observation-code",
+          "code": "BMET",
+          "display": "Metabolic Work-Up"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/11823804"
+      },
+      "interpretation": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "A",
+          "display": "Abnormal"
+        } ]
+      } ]
+    },
+    "search": {
+      "mode": "include"
+    }
+  } ]
+}
