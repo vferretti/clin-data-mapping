@@ -44,10 +44,62 @@ Vincent Ferretti — lead technique / architecte du projet. Francophone, expert 
 - Tableaux de mapping Notion avec colonnes colorées : vert (OK), orange (Partiel), rouge (GAP), jaune (Radiant only)
 - Écrire directement dans les pages Notion (pas juste proposer le contenu en texte)
 
-## État d'avancement (2026-05-04)
+## Architecture Auth : Keycloak + Ranger (discussion 2026-05-05)
+
+### Contexte
+FHIR utilise `Practitioner`, `PractitionerRole` et `Organization` pour modéliser les professionnels. Radiant utilisera **Keycloak** (authentification) + **Apache Ranger** (rôles et accès). La question : peut-on abandonner complètement les concepts FHIR Practitioner/PractitionerRole ?
+
+### Conclusion : approche hybride recommandée
+
+**Keycloak/Ranger** gèrent l'auth et les rôles, mais il faut une **table `practitioner` légère** dans Radiant pour gérer le cas des prescripteurs sans compte applicatif (médecins externes qui prescrivent mais n'utilisent pas l'app).
+
+### 3 niveaux d'identité
+
+| Concept | Stockage | Exemple |
+|---|---|---|
+| Utilisateur actif (se connecte) | Keycloak + Ranger | Généticien qui utilise l'app |
+| Prescripteur connu (ne se connecte pas) | Table `practitioner` dans Radiant | Médecin externe qui prescrit |
+| Snapshot sur la prescription | Champs dénormalisés dans `cases` | `requester_name`, `requester_licence` pour audit |
+
+### DDL proposé pour `practitioner`
+
+```sql
+CREATE TABLE public.practitioner (
+    id integer NOT NULL,
+    licence_number text,          -- numéro de permis CMQ
+    licence_organization text,    -- 'CMQ', 'OPQ', etc.
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    keycloak_user_id uuid,        -- NULL si pas de compte
+    is_active boolean NOT NULL DEFAULT true,
+    created_on timestamp without time zone NOT NULL,
+    updated_on timestamp without time zone NOT NULL
+);
+```
+
+- `keycloak_user_id` non NULL → utilisateur avec compte, rôles/accès via Keycloak/Ranger
+- `keycloak_user_id` NULL → prescripteur externe, identifié par permis + nom
+- `cases.requester_id` → FK vers `practitioner` (au lieu d'un keycloak_user_id direct)
+
+### Pourquoi une table plutôt que juste des champs sur `cases`
+- Un même prescripteur externe peut prescrire plusieurs analyses → lien cohérent
+- Si le prescripteur obtient un compte, mise à jour d'un seul enregistrement
+- Recherches par prescripteur = `WHERE requester_id = ?` au lieu de `LIKE` sur texte
+
+### Points Keycloak/Ranger pertinents
+- Keycloak supporte nativement `enabled` (booléen) pour activer/désactiver un utilisateur
+- Un utilisateur désactivé ne peut plus se connecter mais son identité reste dans le système
+- Ranger gère les politiques d'accès aux données (row-level, column-level)
+- Pas besoin de recréer le modèle FHIR PractitionerRole — Ranger couvre les rôles
+
+### Décision : en attente de validation par Vincent
+
+## État d'avancement (2026-05-05)
 - Page de référence : sections 2.1 et 2.2 révisées, sections 2.3+ restent à réviser
 - Page de mapping concret : 3 pages enfant créées avec mapping détaillé complet
+- Discussion auth Keycloak/Ranger : proposition hybride formulée, en attente de validation
 - Prochaines étapes possibles :
+  - Valider l'approche hybride practitioner (Keycloak + table légère)
   - Réviser les sections 2.3 à 2.11 de la page de référence
   - Proposer des solutions concrètes pour les GAPs
   - Travailler sur le DDL des modifications du schéma Radiant
