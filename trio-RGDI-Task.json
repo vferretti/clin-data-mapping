@@ -1,0 +1,2942 @@
+{
+    "resourceType": "Bundle",
+    "id": "2673ff4e-f1b3-403a-a893-4a8e73df123c",
+    "meta": {
+        "lastUpdated": "2026-05-07T17:42:51.540+00:00"
+    },
+    "type": "searchset",
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest?_id=1524936&_include=*&_pretty=true&_revinclude=*"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest/1524936",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "1524936",
+                "meta": {
+                    "versionId": "4",
+                    "lastUpdated": "2026-05-02T03:22:44.698+00:00",
+                    "source": "#26ad5243e2e87b94",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-analysis-request"
+                    ],
+                    "security": [
+                        {
+                            "code": "CHUSJ"
+                        },
+                        {
+                            "code": "LDM-CHUSJ"
+                        }
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/family-member",
+                        "extension": [
+                            {
+                                "url": "parent",
+                                "valueReference": {
+                                    "reference": "Patient/1524934"
+                                }
+                            },
+                            {
+                                "url": "parent-relationship",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                                            "code": "MTH",
+                                            "display": "mother"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/family-member",
+                        "extension": [
+                            {
+                                "url": "parent",
+                                "valueReference": {
+                                    "reference": "Patient/1524935"
+                                }
+                            },
+                            {
+                                "url": "parent-relationship",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                                            "code": "FTH",
+                                            "display": "father"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/active-status",
+                        "valueString": "analysis"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "https://cqgc.qc.ca/family",
+                        "value": "FAM_1524936"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+                            "code": "RGDI",
+                            "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+                        },
+                        {
+                            "system": "https://www.msss.gouv.qc.ca/repertoires/biomed",
+                            "code": "55360"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1524933"
+                },
+                "authoredOn": "2026-04-28T20:24:24+00:00",
+                "performer": [
+                    {
+                        "reference": "Organization/LDM-CHUSJ"
+                    }
+                ],
+                "supportingInfo": [
+                    {
+                        "reference": "ClinicalImpression/1524950"
+                    },
+                    {
+                        "reference": "ClinicalImpression/1524951"
+                    },
+                    {
+                        "reference": "ClinicalImpression/1524952"
+                    }
+                ],
+                "note": [
+                    {
+                        "authorReference": {
+                            "reference": "Practitioner/PR00028"
+                        },
+                        "time": "2026-04-28T20:24:24+00:00",
+                        "text": "--"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/AuditEvent/1525158",
+            "resource": {
+                "resourceType": "AuditEvent",
+                "id": "1525158",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:25:03.389+00:00"
+                },
+                "action": "U",
+                "recorded": "2026-04-28T20:25:03.389+00:00",
+                "outcome": "0",
+                "agent": [
+                    {
+                        "who": {
+                            "reference": "Practitioner/PR00028"
+                        },
+                        "name": "Dan Spiegelman"
+                    }
+                ],
+                "entity": [
+                    {
+                        "what": {
+                            "reference": "ServiceRequest/1524936/_history/3"
+                        },
+                        "type": {
+                            "system": "https://www.hl7.org/fhir/valueset-audit-entity-type.html",
+                            "code": "ServiceRequest"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Patient/1524933",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1524933",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:25.711+00:00",
+                    "source": "#b53a103a06f62874",
+                    "security": [
+                        {
+                            "code": "CHUSJ"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR",
+                                    "display": "Medical record number"
+                                }
+                            ]
+                        },
+                        "value": "X4288890",
+                        "assigner": {
+                            "reference": "Organization/CHUSJ"
+                        }
+                    }
+                ],
+                "gender": "female",
+                "managingOrganization": {
+                    "reference": "Organization/CHUSJ"
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Task/1525088",
+            "resource": {
+                "resourceType": "Task",
+                "id": "1525088",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-analysis-task"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/workflow",
+                        "extension": [
+                            {
+                                "url": "workflowName",
+                                "valueString": "Dragen"
+                            },
+                            {
+                                "url": "genomeBuild",
+                                "valueCoding": {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/genome-build",
+                                    "code": "GRCh38",
+                                    "display": "GRCh38"
+                                }
+                            },
+                            {
+                                "url": "workflowVersion",
+                                "valueString": "4.4.4"
+                            }
+                        ]
+                    },
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/sequencing-experiment",
+                        "extension": [
+                            {
+                                "url": "runName",
+                                "valueString": "20260424_LH00336_0405_A23J2KMLT3"
+                            },
+                            {
+                                "url": "runAlias",
+                                "valueString": "0405"
+                            },
+                            {
+                                "url": "experimentalStrategy",
+                                "valueCoding": {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/experimental-strategy",
+                                    "code": "WXS",
+                                    "display": "Whole Exome Sequencing"
+                                }
+                            },
+                            {
+                                "url": "platform",
+                                "valueString": "Illumina"
+                            },
+                            {
+                                "url": "protocol",
+                                "valueString": "HyperPlus"
+                            },
+                            {
+                                "url": "captureKit",
+                                "valueString": "RocheKapaHyperExomeV2"
+                            },
+                            {
+                                "url": "sequencerId",
+                                "valueString": "LH00336"
+                            },
+                            {
+                                "url": "runDate",
+                                "valueDateTime": "2026-04-24T00:00:00+00:00"
+                            },
+                            {
+                                "url": "labAliquotId",
+                                "valueString": "45537"
+                            }
+                        ]
+                    }
+                ],
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/1524936"
+                    }
+                ],
+                "groupIdentifier": {
+                    "value": "20260424_LH00336_0405_A23J2KMLT3_germinal"
+                },
+                "status": "completed",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/bioinfo-analysis-code",
+                            "code": "GEBA",
+                            "display": "Germline Exome Bioinformatic Analysis"
+                        }
+                    ]
+                },
+                "focus": {
+                    "reference": "ServiceRequest/1524939"
+                },
+                "for": {
+                    "reference": "Patient/1524935"
+                },
+                "authoredOn": "2026-04-28T20:24:36+00:00",
+                "requester": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "owner": {
+                    "reference": "Organization/CQGC"
+                },
+                "input": [
+                    {
+                        "type": {
+                            "text": "Analysed sample"
+                        },
+                        "valueReference": {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    }
+                ],
+                "output": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "CHRMR",
+                                    "display": "Chromosome M Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525073"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SNVPG",
+                                    "display": "Germline SNV from Variants Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525074"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "GCNV",
+                                    "display": "Germline CNV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525075"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ROH",
+                                    "display": "Runs of Homozygosity"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525076"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ALIR",
+                                    "display": "Aligned Reads"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525077"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "GSV",
+                                    "display": "Germline SV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525078"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "QCRUN",
+                                    "display": "Sequencing Run QC Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525079"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "NRRV",
+                                    "display": "Annotated Variants from Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525080"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "PEC",
+                                    "display": "Ploidy Estimation per Chromosome"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525081"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "COVGENE",
+                                    "display": "Coverage by Gene Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525082"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ALIRPG",
+                                    "display": "Aligned Reads from Variants Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525083"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "IGV",
+                                    "display": "IGV Track"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525084"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SNV",
+                                    "display": "Germline SNV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525085"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "CNVVIS",
+                                    "display": "CNV Visualization"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525086"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SSUP",
+                                    "display": "Sequencing Data Supplement"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525087"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/AuditEvent/1537600",
+            "resource": {
+                "resourceType": "AuditEvent",
+                "id": "1537600",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-05-02T03:22:44.721+00:00"
+                },
+                "action": "U",
+                "recorded": "2026-05-02T03:22:44.721+00:00",
+                "outcome": "0",
+                "agent": [
+                    {
+                        "name": "service-account-clin-system"
+                    }
+                ],
+                "entity": [
+                    {
+                        "what": {
+                            "reference": "ServiceRequest/1524936/_history/4"
+                        },
+                        "type": {
+                            "system": "https://www.hl7.org/fhir/valueset-audit-entity-type.html",
+                            "code": "ServiceRequest"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Task/1525070",
+            "resource": {
+                "resourceType": "Task",
+                "id": "1525070",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-analysis-task"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/workflow",
+                        "extension": [
+                            {
+                                "url": "workflowName",
+                                "valueString": "Dragen"
+                            },
+                            {
+                                "url": "genomeBuild",
+                                "valueCoding": {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/genome-build",
+                                    "code": "GRCh38",
+                                    "display": "GRCh38"
+                                }
+                            },
+                            {
+                                "url": "workflowVersion",
+                                "valueString": "4.4.4"
+                            }
+                        ]
+                    },
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/sequencing-experiment",
+                        "extension": [
+                            {
+                                "url": "runName",
+                                "valueString": "20260424_LH00336_0405_A23J2KMLT3"
+                            },
+                            {
+                                "url": "runAlias",
+                                "valueString": "0405"
+                            },
+                            {
+                                "url": "experimentalStrategy",
+                                "valueCoding": {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/experimental-strategy",
+                                    "code": "WXS",
+                                    "display": "Whole Exome Sequencing"
+                                }
+                            },
+                            {
+                                "url": "platform",
+                                "valueString": "Illumina"
+                            },
+                            {
+                                "url": "protocol",
+                                "valueString": "HyperPlus"
+                            },
+                            {
+                                "url": "captureKit",
+                                "valueString": "RocheKapaHyperExomeV2"
+                            },
+                            {
+                                "url": "sequencerId",
+                                "valueString": "LH00336"
+                            },
+                            {
+                                "url": "runDate",
+                                "valueDateTime": "2026-04-24T00:00:00+00:00"
+                            },
+                            {
+                                "url": "labAliquotId",
+                                "valueString": "45538"
+                            }
+                        ]
+                    }
+                ],
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/1524936"
+                    }
+                ],
+                "groupIdentifier": {
+                    "value": "20260424_LH00336_0405_A23J2KMLT3_germinal"
+                },
+                "status": "completed",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/bioinfo-analysis-code",
+                            "code": "GEBA",
+                            "display": "Germline Exome Bioinformatic Analysis"
+                        }
+                    ]
+                },
+                "focus": {
+                    "reference": "ServiceRequest/1524938"
+                },
+                "for": {
+                    "reference": "Patient/1524934"
+                },
+                "authoredOn": "2026-04-28T20:24:34+00:00",
+                "requester": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "owner": {
+                    "reference": "Organization/CQGC"
+                },
+                "input": [
+                    {
+                        "type": {
+                            "text": "Analysed sample"
+                        },
+                        "valueReference": {
+                            "reference": "Specimen/1525054",
+                            "display": "Submitter Sample ID: DM2603047"
+                        }
+                    }
+                ],
+                "output": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "CHRMR",
+                                    "display": "Chromosome M Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525055"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SNVPG",
+                                    "display": "Germline SNV from Variants Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525056"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "GCNV",
+                                    "display": "Germline CNV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525057"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ROH",
+                                    "display": "Runs of Homozygosity"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525058"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ALIR",
+                                    "display": "Aligned Reads"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525059"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "GSV",
+                                    "display": "Germline SV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525060"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "QCRUN",
+                                    "display": "Sequencing Run QC Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525061"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "NRRV",
+                                    "display": "Annotated Variants from Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525062"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "PEC",
+                                    "display": "Ploidy Estimation per Chromosome"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525063"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "COVGENE",
+                                    "display": "Coverage by Gene Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525064"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ALIRPG",
+                                    "display": "Aligned Reads from Variants Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525065"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "IGV",
+                                    "display": "IGV Track"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525066"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SNV",
+                                    "display": "Germline SNV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525067"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "CNVVIS",
+                                    "display": "CNV Visualization"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525068"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SSUP",
+                                    "display": "Sequencing Data Supplement"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525069"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/AuditEvent/1524956",
+            "resource": {
+                "resourceType": "AuditEvent",
+                "id": "1524956",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:26.442+00:00"
+                },
+                "action": "C",
+                "recorded": "2026-04-28T20:24:26.396+00:00",
+                "outcome": "0",
+                "agent": [
+                    {
+                        "who": {
+                            "reference": "Practitioner/PR00028"
+                        },
+                        "name": "Dan Spiegelman"
+                    }
+                ],
+                "entity": [
+                    {
+                        "what": {
+                            "reference": "ServiceRequest/1524936/_history/1"
+                        },
+                        "type": {
+                            "system": "https://www.hl7.org/fhir/valueset-audit-entity-type.html",
+                            "code": "ServiceRequest"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Task/1525052",
+            "resource": {
+                "resourceType": "Task",
+                "id": "1525052",
+                "meta": {
+                    "versionId": "3",
+                    "lastUpdated": "2026-04-30T05:15:09.839+00:00",
+                    "source": "#21e48adf1b0f7937",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-analysis-task"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/workflow",
+                        "extension": [
+                            {
+                                "url": "workflowName",
+                                "valueString": "Dragen"
+                            },
+                            {
+                                "url": "genomeBuild",
+                                "valueCoding": {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/genome-build",
+                                    "code": "GRCh38",
+                                    "display": "GRCh38"
+                                }
+                            },
+                            {
+                                "url": "workflowVersion",
+                                "valueString": "4.4.4"
+                            }
+                        ]
+                    },
+                    {
+                        "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/sequencing-experiment",
+                        "extension": [
+                            {
+                                "url": "runName",
+                                "valueString": "20260424_LH00336_0405_A23J2KMLT3"
+                            },
+                            {
+                                "url": "runAlias",
+                                "valueString": "0405"
+                            },
+                            {
+                                "url": "experimentalStrategy",
+                                "valueCoding": {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/experimental-strategy",
+                                    "code": "WXS",
+                                    "display": "Whole Exome Sequencing"
+                                }
+                            },
+                            {
+                                "url": "platform",
+                                "valueString": "Illumina"
+                            },
+                            {
+                                "url": "protocol",
+                                "valueString": "HyperPlus"
+                            },
+                            {
+                                "url": "captureKit",
+                                "valueString": "RocheKapaHyperExomeV2"
+                            },
+                            {
+                                "url": "sequencerId",
+                                "valueString": "LH00336"
+                            },
+                            {
+                                "url": "runDate",
+                                "valueDateTime": "2026-04-24T00:00:00+00:00"
+                            },
+                            {
+                                "url": "labAliquotId",
+                                "valueString": "45539"
+                            }
+                        ]
+                    }
+                ],
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/1524936"
+                    }
+                ],
+                "groupIdentifier": {
+                    "value": "20260424_LH00336_0405_A23J2KMLT3_germinal"
+                },
+                "status": "completed",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/bioinfo-analysis-code",
+                            "code": "GEBA",
+                            "display": "Germline Exome Bioinformatic Analysis"
+                        }
+                    ]
+                },
+                "focus": {
+                    "reference": "ServiceRequest/1524937"
+                },
+                "for": {
+                    "reference": "Patient/1524933"
+                },
+                "authoredOn": "2026-04-28T20:24:33+00:00",
+                "requester": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "owner": {
+                    "reference": "Organization/CQGC"
+                },
+                "input": [
+                    {
+                        "type": {
+                            "text": "Analysed sample"
+                        },
+                        "valueReference": {
+                            "reference": "Specimen/1525036",
+                            "display": "Submitter Sample ID: DM2603052"
+                        }
+                    }
+                ],
+                "output": [
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "CHRMR",
+                                    "display": "Chromosome M Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525037"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SNVPG",
+                                    "display": "Germline SNV from Variants Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525038"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "GCNV",
+                                    "display": "Germline CNV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525039"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ROH",
+                                    "display": "Runs of Homozygosity"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525040"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ALIR",
+                                    "display": "Aligned Reads"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525041"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "GSV",
+                                    "display": "Germline SV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525042"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "QCRUN",
+                                    "display": "Sequencing Run QC Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525043"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "NRRV",
+                                    "display": "Annotated Variants from Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525044"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "PEC",
+                                    "display": "Ploidy Estimation per Chromosome"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525045"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "COVGENE",
+                                    "display": "Coverage by Gene Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525046"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "ALIRPG",
+                                    "display": "Aligned Reads from Variants Non-Repetitive Regions Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525047"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "IGV",
+                                    "display": "IGV Track"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525048"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SNV",
+                                    "display": "Germline SNV"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525049"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "CNVVIS",
+                                    "display": "CNV Visualization"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525050"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "SSUP",
+                                    "display": "Sequencing Data Supplement"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1525051"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "EXOMISER",
+                                    "display": "Exomiser SNV Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1529546"
+                        }
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                                    "code": "EXOMISER_CNV",
+                                    "display": "Exomiser CNV Report"
+                                }
+                            ]
+                        },
+                        "valueReference": {
+                            "reference": "DocumentReference/1529711"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest/1524939",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "1524939",
+                "meta": {
+                    "versionId": "3",
+                    "lastUpdated": "2026-04-28T20:25:03.088+00:00",
+                    "source": "#fc87df4404082334",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-sequencing-request"
+                    ],
+                    "security": [
+                        {
+                            "code": "CHUSJ"
+                        },
+                        {
+                            "code": "LDM-CHUSJ"
+                        }
+                    ]
+                },
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/1524936"
+                    }
+                ],
+                "status": "completed",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+                            "code": "RGDI",
+                            "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+                        },
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/sequencing-request-code",
+                            "code": "75020",
+                            "display": "Normal Exome Sequencing"
+                        },
+                        {
+                            "system": "https://www.msss.gouv.qc.ca/repertoires/biomed",
+                            "code": "55360"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "authoredOn": "2026-04-28T20:24:24+00:00",
+                "performer": [
+                    {
+                        "reference": "Organization/LDM-CHUSJ"
+                    }
+                ],
+                "specimen": [
+                    {
+                        "reference": "Specimen/1525071",
+                        "display": "Submitter Specimen ID: 151001289"
+                    },
+                    {
+                        "reference": "Specimen/1525072",
+                        "display": "Submitter Sample ID: DM2603046"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest/1524938",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "1524938",
+                "meta": {
+                    "versionId": "3",
+                    "lastUpdated": "2026-04-28T20:25:03.088+00:00",
+                    "source": "#fc87df4404082334",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-sequencing-request"
+                    ],
+                    "security": [
+                        {
+                            "code": "CHUSJ"
+                        },
+                        {
+                            "code": "LDM-CHUSJ"
+                        }
+                    ]
+                },
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/1524936"
+                    }
+                ],
+                "status": "completed",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+                            "code": "RGDI",
+                            "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+                        },
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/sequencing-request-code",
+                            "code": "75020",
+                            "display": "Normal Exome Sequencing"
+                        },
+                        {
+                            "system": "https://www.msss.gouv.qc.ca/repertoires/biomed",
+                            "code": "55360"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1524934"
+                },
+                "authoredOn": "2026-04-28T20:24:24+00:00",
+                "performer": [
+                    {
+                        "reference": "Organization/LDM-CHUSJ"
+                    }
+                ],
+                "specimen": [
+                    {
+                        "reference": "Specimen/1525053",
+                        "display": "Submitter Specimen ID: 151001282"
+                    },
+                    {
+                        "reference": "Specimen/1525054",
+                        "display": "Submitter Sample ID: DM2603047"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Organization/LDM-CHUSJ",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "LDM-CHUSJ",
+                "meta": {
+                    "versionId": "4",
+                    "lastUpdated": "2023-11-02T14:28:17.138+00:00",
+                    "source": "#61d29a920a6cb732",
+                    "profile": [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "code": "labdx",
+                                "display": "Diagnostic Laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "name": "Laboratoire de diagnostic moléculaire, CHU Sainte-Justine",
+                "alias": [
+                    "LDM-CHUSJ"
+                ],
+                "contact": [
+                    {
+                        "telecom": [
+                            {
+                                "system": "email",
+                                "value": "06_hsj_cqgc2dxmol@ssss.gouv.qc.ca"
+                            },
+                            {
+                                "system": "phone",
+                                "value": "514-345-4642"
+                            },
+                            {
+                                "system": "fax",
+                                "value": "514-345-2339"
+                            },
+                            {
+                                "system": "email",
+                                "value": "alexandre.dionne-laporte.hsj@ssss.gouv.qc.ca"
+                            },
+                            {
+                                "system": "email",
+                                "value": "rene.allard.hsj@ssss.gouv.qc.ca"
+                            }
+                        ],
+                        "address": {
+                            "text": "3175, Côte Sainte-Catherine, Étage 2, bloc 9, Montréal, Québec, H3T 1C5"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/ServiceRequest/1524937",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "1524937",
+                "meta": {
+                    "versionId": "3",
+                    "lastUpdated": "2026-04-28T20:25:03.088+00:00",
+                    "source": "#fc87df4404082334",
+                    "profile": [
+                        "http://fhir.cqgc.ferlab.bio/StructureDefinition/cqgc-sequencing-request"
+                    ],
+                    "security": [
+                        {
+                            "code": "CHUSJ"
+                        },
+                        {
+                            "code": "LDM-CHUSJ"
+                        }
+                    ]
+                },
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/1524936"
+                    }
+                ],
+                "status": "completed",
+                "intent": "order",
+                "priority": "routine",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/analysis-request-code",
+                            "code": "RGDI",
+                            "display": "Global Developmental Delay / Intellectual Disability (Trio)"
+                        },
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/sequencing-request-code",
+                            "code": "75020",
+                            "display": "Normal Exome Sequencing"
+                        },
+                        {
+                            "system": "https://www.msss.gouv.qc.ca/repertoires/biomed",
+                            "code": "55360"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1524933"
+                },
+                "authoredOn": "2026-04-28T20:24:24+00:00",
+                "performer": [
+                    {
+                        "reference": "Organization/LDM-CHUSJ"
+                    }
+                ],
+                "specimen": [
+                    {
+                        "reference": "Specimen/1525035",
+                        "display": "Submitter Specimen ID: 151001242"
+                    },
+                    {
+                        "reference": "Specimen/1525036",
+                        "display": "Submitter Sample ID: DM2603052"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/AuditEvent/1525144",
+            "resource": {
+                "resourceType": "AuditEvent",
+                "id": "1525144",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:25:01.532+00:00"
+                },
+                "action": "U",
+                "recorded": "2026-04-28T20:25:00.784+00:00",
+                "outcome": "0",
+                "agent": [
+                    {
+                        "who": {
+                            "reference": "Practitioner/PR00028"
+                        },
+                        "name": "Dan Spiegelman"
+                    }
+                ],
+                "entity": [
+                    {
+                        "what": {
+                            "reference": "ServiceRequest/1524936/_history/2"
+                        },
+                        "type": {
+                            "system": "https://www.hl7.org/fhir/valueset-audit-entity-type.html",
+                            "code": "ServiceRequest"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "resourceType": "Specimen",
+            "id": "1525036",
+            "meta": {
+                "versionId": "1",
+                "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                "source": "#bf1b742558e88dcc"
+            },
+            "accessionIdentifier": {
+                "system": "https://cqgc.qc.ca/labs/LDM-CHUSJ/sample",
+                "value": "DM2603052",
+                "assigner": {
+                    "reference": "Organization/LDM-CHUSJ"
+                }
+            },
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/specimen-type",
+                        "code": "DNA",
+                        "display": "DNA Sample"
+                    }
+                ]
+            },
+            "subject": {
+                "reference": "Patient/1524933"
+            },
+            "receivedTime": "2026-04-28T20:24:33+00:00",
+            "parent": [
+                {
+                    "reference": "Specimen/1525035",
+                    "display": "Submitter Specimen ID: 151001242"
+                }
+            ],
+            "request": [
+                {
+                    "reference": "ServiceRequest/1524937"
+                }
+            ]
+        },
+        {
+            "resourceType": "Specimen",
+            "id": "1525035",
+            "meta": {
+                "versionId": "1",
+                "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                "source": "#bf1b742558e88dcc"
+            },
+            "accessionIdentifier": {
+                "system": "https://cqgc.qc.ca/labs/LDM-CHUSJ/specimen",
+                "value": "151001242",
+                "assigner": {
+                    "reference": "Organization/LDM-CHUSJ"
+                }
+            },
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/specimen-type",
+                        "code": "NBL",
+                        "display": "Normal Blood Specimen"
+                    }
+                ]
+            },
+            "subject": {
+                "reference": "Patient/1524933"
+            },
+            "receivedTime": "2026-04-28T20:24:33+00:00",
+            "request": [
+                {
+                    "reference": "ServiceRequest/1524937"
+                }
+            ]
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525078",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525078",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "GSV",
+                            "display": "Germline SV"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 349763
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/6fecd435-e97a-4ebe-8247-f9ceb1b46a3f.vcf.gz",
+                            "title": "45537.sv.vcf.gz"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "VCF",
+                            "display": "VCF File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 10851
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/6fecd435-e97a-4ebe-8247-f9ceb1b46a3f.tbi",
+                            "title": "45537.sv.vcf.gz.tbi"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "TBI",
+                            "display": "TBI Index File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525077",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525077",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "ALIR",
+                            "display": "Aligned Reads"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 4373585529
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/2de5554e-0594-46f3-94ba-de5839d14c80.cram",
+                            "title": "45537.dragen.WES_germinal.cram"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "CRAM",
+                            "display": "CRAM File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 2272818
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/2de5554e-0594-46f3-94ba-de5839d14c80.crai",
+                            "title": "45537.dragen.WES_germinal.cram.crai"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "CRAI",
+                            "display": "CRAI Index File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525076",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525076",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "ROH",
+                            "display": "Runs of Homozygosity"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 404
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/3d449c48-29fe-4582-9594-9cbd3f25e3a5.roh.bed",
+                            "title": "45537.roh.bed"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "BED",
+                            "display": "BED File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525075",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525075",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "GCNV",
+                            "display": "Germline CNV"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 7730
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/50d61bdd-4d84-45bb-a611-117e248a7b09.vcf.gz",
+                            "title": "45537.cnv.vcf.gz"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "VCF",
+                            "display": "VCF File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 5208
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/50d61bdd-4d84-45bb-a611-117e248a7b09.tbi",
+                            "title": "45537.cnv.vcf.gz.tbi"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "TBI",
+                            "display": "TBI Index File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525074",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525074",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "SNVPG",
+                            "display": "Germline SNV from Variants Non-Repetitive Regions Report"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 72097
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/46681687-c0c0-41f3-ada6-b21391bb3706.vcf.gz",
+                            "title": "45537.maskedfiltered.norm.vcf.gz"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "VCF",
+                            "display": "VCF File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525073",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525073",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "CHRMR",
+                            "display": "Chromosome M Report"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 508505
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/5ddeeb22-1614-4a5d-b3e5-ffffdf50e5d9.xlsx",
+                            "title": "45537.chrM.xlsx"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "XLSX",
+                            "display": "Excel File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Specimen/1525072",
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "1525072",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "accessionIdentifier": {
+                    "system": "https://cqgc.qc.ca/labs/LDM-CHUSJ/sample",
+                    "value": "DM2603046",
+                    "assigner": {
+                        "reference": "Organization/LDM-CHUSJ"
+                    }
+                },
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/specimen-type",
+                            "code": "DNA",
+                            "display": "DNA Sample"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "receivedTime": "2026-04-28T20:24:35+00:00",
+                "parent": [
+                    {
+                        "reference": "Specimen/1525071",
+                        "display": "Submitter Specimen ID: 151001289"
+                    }
+                ],
+                "request": [
+                    {
+                        "reference": "ServiceRequest/1524939"
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525087",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525087",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "SSUP",
+                            "display": "Sequencing Data Supplement"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 78614108
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/07a43d6d-58a9-4c59-843b-2cc2c65ad85d.tgz",
+                            "title": "45537.extra.tgz"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "TGZ",
+                            "display": "TGZ Archive File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525086",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525086",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "CNVVIS",
+                            "display": "CNV Visualization"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 6614975
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/dae93e5d-9e0c-49cf-9797-b638b4b22d90.png",
+                            "title": "45537.combined_copyratio_baf_roh.png"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "PNG",
+                            "display": "PNG File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525085",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525085",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "SNV",
+                            "display": "Germline SNV"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 436579861
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/28cc3244-0856-4c03-af04-df38a5c1a35e.vcf",
+                            "title": "45537.hard-filtered.gvcf.gz"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "VCF",
+                            "display": "VCF File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 951188
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/28cc3244-0856-4c03-af04-df38a5c1a35e.tbi",
+                            "title": "45537.hard-filtered.gvcf.gz.tbi"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "TBI",
+                            "display": "TBI Index File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525084",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525084",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "IGV",
+                            "display": "IGV Track"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 33660
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/4805a467-11da-4a2b-bbf9-4856ab39215b.seg.bw",
+                            "title": "45537.seg.bw"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "BW",
+                            "display": "BW File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 4570400
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/4805a467-11da-4a2b-bbf9-4856ab39215b.baf.bw",
+                            "title": "45537.hard-filtered.baf.bw"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "BW",
+                            "display": "BW File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 4811209
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/4805a467-11da-4a2b-bbf9-4856ab39215b.bed",
+                            "title": "45537.HyperExomeV2_combined_targets.bed"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "BED",
+                            "display": "BED File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525083",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525083",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "ALIRPG",
+                            "display": "Aligned Reads from Variants Non-Repetitive Regions Report"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 5175529
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/2701e79a-c077-496a-9a92-0b71e3de1390.cram",
+                            "title": "45537.masked.cram"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "CRAM",
+                            "display": "CRAM File"
+                        }
+                    },
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 1130
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/2701e79a-c077-496a-9a92-0b71e3de1390.crai",
+                            "title": "45537.masked.cram.crai"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "CRAI",
+                            "display": "CRAI Index File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/Organization/LDM-CHUSJ",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "LDM-CHUSJ",
+                "meta": {
+                    "versionId": "4",
+                    "lastUpdated": "2023-11-02T14:28:17.138+00:00",
+                    "source": "#61d29a920a6cb732",
+                    "profile": [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "code": "labdx",
+                                "display": "Diagnostic Laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "name": "Laboratoire de diagnostic moléculaire, CHU Sainte-Justine",
+                "alias": [
+                    "LDM-CHUSJ"
+                ],
+                "contact": [
+                    {
+                        "telecom": [
+                            {
+                                "system": "email",
+                                "value": "06_hsj_cqgc2dxmol@ssss.gouv.qc.ca"
+                            },
+                            {
+                                "system": "phone",
+                                "value": "514-345-4642"
+                            },
+                            {
+                                "system": "fax",
+                                "value": "514-345-2339"
+                            },
+                            {
+                                "system": "email",
+                                "value": "alexandre.dionne-laporte.hsj@ssss.gouv.qc.ca"
+                            },
+                            {
+                                "system": "email",
+                                "value": "rene.allard.hsj@ssss.gouv.qc.ca"
+                            }
+                        ],
+                        "address": {
+                            "text": "3175, Côte Sainte-Catherine, Étage 2, bloc 9, Montréal, Québec, H3T 1C5"
+                        }
+                    }
+                ]
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525082",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525082",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "COVGENE",
+                            "display": "Coverage by Gene Report"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 17229775
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/33956050-7c4e-433b-a936-600104bba0ed.csv",
+                            "title": "45537.coverage_by_gene.GENCODE_CODING_CANONICAL.csv"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "CSV",
+                            "display": "CSV File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525081",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525081",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "PEC",
+                            "display": "Ploidy Estimation per Chromosome"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 1303
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/238d47c0-ef52-4629-914c-c2714ff74fa5.csv",
+                            "title": "45537.ploidy_estimation_metrics.csv"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "CSV",
+                            "display": "CSV File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        },
+        {
+            "fullUrl": "https://fhir.cqgc.hsj.rtss.qc.ca/fhir/DocumentReference/1525080",
+            "resource": {
+                "resourceType": "DocumentReference",
+                "id": "1525080",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-04-28T20:24:59.876+00:00",
+                    "source": "#bf1b742558e88dcc"
+                },
+                "status": "current",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-type",
+                            "code": "NRRV",
+                            "display": "Annotated Variants from Non-Repetitive Regions Report"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/data-category",
+                                "code": "GENO",
+                                "display": "Genomics"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1524935"
+                },
+                "custodian": {
+                    "reference": "Organization/LDM-CHUSJ"
+                },
+                "content": [
+                    {
+                        "attachment": {
+                            "extension": [
+                                {
+                                    "url": "http://fhir.cqgc.ferlab.bio/StructureDefinition/full-size",
+                                    "valueDecimal": 1899724
+                                }
+                            ],
+                            "contentType": "application/octet-stream",
+                            "url": "https://ferload.cqgc.hsj.rtss.qc.ca/8d94daa5-6626-45cb-8b05-f58ffc362b96.xlsx",
+                            "title": "45537.maskedfiltered.norm.VEP.annotated.xlsx"
+                        },
+                        "format": {
+                            "system": "http://fhir.cqgc.ferlab.bio/CodeSystem/document-format",
+                            "code": "XLSX",
+                            "display": "Excel File"
+                        }
+                    }
+                ],
+                "context": {
+                    "related": [
+                        {
+                            "reference": "Specimen/1525072",
+                            "display": "Submitter Sample ID: DM2603046"
+                        }
+                    ]
+                }
+            },
+            "search": {
+                "mode": "include"
+            }
+        }
+    ]
+}

@@ -10,18 +10,27 @@ Vincent Ferretti — lead technique / architecte du projet. Francophone, expert 
 - `fetus.json` — Bundle FHIR exemple prénatal (DYSM, mère + fœtus)
 - `nouveau_ne.json` — Bundle FHIR exemple postnatal nouveau-né (POLYM, duo mère-enfant, père manquant)
 - `trio-pere-manquant.json` — Bundle FHIR exemple postnatal trio (RGDI, père manquant permanent)
+- `trio-RGDI-Task.json` — Bundle FHIR avec ServiceRequest (sequencing) + Task (cqgc-analysis-task) + Specimen + DocumentReference (14 docs : VCF, BAM/CRAM, QC, IGV, etc.). Source de référence pour le mapping de la chaîne sequencing → task → document
 - `init_radiant.sql` — Schéma DDL Radiant consolidé (CREATE statements seulement, extrait des migrations Postgres de `radiant-portal`)
 - `~/src/clin-fhir/` — Définition du modèle FHIR (CodeSystems, ValueSets, StructureDefinitions)
 - `~/src/radiant-portal/` — Code source Radiant (Go API + React frontend). Schéma authoritatif : `backend/scripts/init-sql/migrations/000001_init.up.sql` (Postgres 14 dans docker-compose)
 
 ## Pages Notion
 - **Mapping générique (référence)** : https://www.notion.so/33cb0fcecb3d805c9237e3d9c9ca0be2
-  - Sections refondues (2026-05-06) avec tableaux 5 colonnes + bloc SQL `// Résumé des changements proposés` + `------` + `// Description de la table finale` :
-    - Person + Patient → patient
-    - Practitioner + PractitionerRole → Pas d'équivalent dans Radiant
-    - ServiceRequest (Analysis) → cases + analysis_catalog + family
-    - ClinicalImpression → Pas d'équivalent direct (2 options : table dédiée ou champs sur observations)
-  - Sections 2.3 à 2.11 (sequencing, observations, family_history, organization, lab_additional, etc.) **restent au format ancien** à refondre
+  - **Toutes les sections de mapping de tables Radiant sont au nouveau format** (tableau 5 col Champ Radiant | Champ FHIR | Statut | Action | Note + bloc SQL `// Résumé des changements proposés` + `------` + `// Description de la table finale`). État au 2026-05-07 :
+    - ✅ Person + Patient → patient
+    - ✅ Practitioner + PractitionerRole (3 nouvelles tables)
+    - ✅ ServiceRequest (Analysis) → cases + request_catalog + project + family
+    - ✅ ClinicalImpression → Option 1 (table `clinical_assessment`) refondue ; Option 2 documentée dans les obs et family_history
+    - ✅ Observations → obs_categorical + obs_boolean + obs_string (Option 2)
+    - ✅ FamilyMemberHistory → family_history (Option 2)
+    - ✅ Organization → organization
+    - ✅ ServiceRequest (Sequencing) + Task → sequencing_experiment + case_has_sequencing_experiment
+    - ✅ Specimen → sample
+    - ✅ Task → task + task_context + task_has_document
+    - ✅ DocumentReference → document
+  - Sections **callout uniquement** (pas de table ; "Pas d'équivalent") : OrganizationAffiliation, Lab_additional, roles → Keycloak
+  - Sections de synthèse (## 3 GAPs, ## 4 Plan, ## 5 Mapping codes) intactes
 - **Mapping concret (exemples)** : https://www.notion.so/356b0fcecb3d8064b82cc533b1b44090
   - Fœtus : https://www.notion.so/356b0fcecb3d814bb39fcefaf9148b65
   - Nouveau-né : https://www.notion.so/356b0fcecb3d810fb2a7d8bcd7dd4fa0
@@ -63,7 +72,8 @@ CREATE TABLE ...
 - Nouveaux champs : `primary_condition_note text` (mappé sur Observation INDIC), `order_detail text` (mappé sur orderDetail.text, pour panel reflex)
 - **Pas** de `clinical_assessment_id` sur cases (cf. décisions ClinicalImpression ci-dessous)
 
-**`analysis_catalog`** :
+**`request_catalog`** (renommé depuis `analysis_catalog` le 2026-05-07) :
+- `ALTER TABLE public.analysis_catalog RENAME TO request_catalog;` + `cases.analysis_catalog_id` → `cases.request_catalog_id`
 - Nouveau champ `billing_number text` (code de facturation MSSS/RAMQ, mappé sur `code.coding[1].code` system `msss.gouv.qc.ca`)
 
 **`family`** :
@@ -78,9 +88,24 @@ CREATE TABLE ...
 - Téléphone abandonné, seul email gardé pour PractitionerRole.telecom
 - **Note convention** : Vincent a soulevé que les nouvelles tables de codes Radiant n'ont peut-être plus le suffix `_code` (à vérifier dans le code source). Le DDL propose `practitioner_role_code` — à confirmer.
 
-**ClinicalImpression** : 2 options en attente de décision
+**ClinicalImpression** : 2 options documentées dans Notion, **pas de tranchage final**. Pour le moment, l'Option 2 a été appliquée concrètement (les 3 champs `assessor_id`, `assessment_date`, `age_at_event_days` ont été ajoutés à `obs_categorical`, `obs_boolean`, `obs_string` ET `family_history`).
 - Option 1 : créer `clinical_assessment` (id, patient_id, case_id, assessor_id, status_code, assessment_date, age_at_event_days)
-- Option 2 : ajouter `assessor_id`, `assessment_date`, `age_at_event_days` directement sur `obs_categorical` / `obs_string` / `family_history`
+- Option 2 : ajouter `assessor_id`, `assessment_date`, `age_at_event_days` directement sur les 4 tables d'observation
+
+### Tables harmonisées (2026-05-07)
+Les 3 tables d'observations partagent maintenant le même squelette de colonnes :
+- Communs : `id`, `case_id`, `patient_id`, `observation_code`, `onset_code`, `interpretation_code` (FK vers `obs_interpretation.code`), `note`, `assessor_id`, `assessment_date`, `age_at_event_days`
+- Spécifique : `obs_categorical` a `coding_system` + `code_value` ; `obs_boolean` a `value boolean` ; `obs_string` a `value text`
+- **Nouvelle table `obs_boolean`** introduite (au lieu de stocker les booléens dans `obs_categorical` avec conversion texte) — vraie colonne Postgres `boolean`
+
+### Tables de la chaîne sequencing → task → document (mappées 2026-05-07)
+- `sequencing_experiment` : combine **SR_sequencing** (basedOn, specimen, performer, status) + **Task.extension:sequencing-experiment** (runName, runDate, captureKit, labAliquotId, experimentalStrategy, platform). PAS RADIANT_ONLY comme initialement marqué.
+- `case_has_sequencing_experiment` : association case ↔ sequencing_experiment (via SR_sequencing.basedOn)
+- `sample` ← `Specimen` : DNA, parent_sample_id, submitter_sample_id (accessionIdentifier.value)
+- `task` : Task.code (GEBA), Task.authoredOn, Task.extension:workflow (workflowName "Dragen", workflowVersion "4.4.4", genomeBuild "GRCh38")
+- `task_context` : association ternaire task / case (basedOn) / sequencing_experiment (focus)
+- `task_has_document` : Task.output[i] (type CHRMR/SNVPG/GCNV/etc., document_id ref)
+- `document` ← `DocumentReference` : **1 DocumentReference = N rows** (un par `content[i]` car FHIR groupe fichier principal + index, ex. VCF + TBI ou CRAM + CRAI). `size` est dans une extension custom `full-size.valueDecimal`, pas dans `attachment.size` standard. `hash` et `date` absents des exemples.
 
 ### Champs FHIR « oubliés » (statut FHIR_ONLY sans action) sur cases
 - `note[].authorReference` et `note[].time` : on assume que c'est toujours l'auteur/date de création du case
@@ -88,23 +113,29 @@ CREATE TABLE ...
 - `meta.security` : géré par Ranger / RLS
 - `supportingInfo` (refs ClinicalImpression) : voir options ClinicalImpression
 
-## GAPs identifiés (état 2026-05-06)
+## GAPs identifiés (état 2026-05-07)
 
 ### Résolus / proposition acceptée
 - ✅ `project_id` NOT NULL → `DROP NOT NULL` proposé
-- ✅ Code MSSS biomed (55330, 55360, 55372) → champ `analysis_catalog.billing_number` proposé
+- ✅ Code MSSS biomed (55330, 55360, 55372) → champ `request_catalog.billing_number` proposé
 - ✅ `note[].authorReference` et `note[].time` → assumés = createur/date du case (FHIR_ONLY sans action)
 - ✅ Practitioner/PractitionerRole → 3 nouvelles tables proposées
+- ✅ `obs_string.interpretation_code` ajouté (FK vers `obs_interpretation.code` partagée avec `obs_categorical`)
+- ✅ `obs_boolean` créée pour les Observations à `valueBoolean` (pas de conversion en texte)
+- ✅ `analysis_catalog` renommé en `request_catalog` (+ rename de la FK `cases.analysis_catalog_id`)
+- ✅ Mapping complet de la chaîne sequencing → task → document (sequencing_experiment, case_has_sequencing_experiment, sample, task, task_context, task_has_document, document)
 
 ### En cours / en attente de décision
-- 🟡 ClinicalImpression : 2 options proposées (table dédiée vs champs sur observations)
+- 🟡 ClinicalImpression : 2 options documentées ; Option 2 appliquée concrètement (champs sur les 4 tables d'obs/family_history) sans choix officiel
 - 🟡 Membre de famille manquant : sera représenté par Observation (à définir)
 - 🟡 `case_category_code` absent quand postnatal (valeur par défaut à définir)
+- 🟡 Question Vincent (notes Notion) : `primary_condition_note`, `primary_condition`, `condition_code_system` pourraient être stockés comme Observation INDIC plutôt qu'en colonnes sur cases — à clarifier
+- 🟡 Question Vincent (notes Notion) : `case_type_code` (Germline/Somatic) — à quoi sert-il ? Pipeline ?
+- 🟡 Question Vincent (notes Notion) : `orderDetail.text` — autre cas d'usage que le panel reflex ?
 
 ### Non encore traités
 - `Observation.focus` (fœtus) n'a pas d'équivalent dans Radiant
 - `RelatedPerson` (RAMQ mère du nouveau-né) n'a pas d'équivalent
-- `obs_string` n'a pas de champ `interpretation_code` (CKIN, CNVPG perdent leur interpretation)
 - DDM et âge gestationnel : codes LOINC + types DateTime/Quantity ne rentrent pas dans obs_categorical/obs_string
 - Lien mère↔fœtus (`Patient.link.type=seealso`) n'a pas d'équivalent
 - `OrganizationAffiliation` (routing labo↔hôpital par spécialité) n'a pas de table
@@ -163,28 +194,30 @@ CREATE TABLE public.practitioner (
 
 ### Décision : en attente de validation par Vincent
 
-## État d'avancement (2026-05-06)
+## État d'avancement (2026-05-07)
 
-### Sections de la page de référence refondues au nouveau format
-- ✅ Person + Patient → patient (tableau 5 col + ALTER + CREATE final)
-- ✅ Practitioner + PractitionerRole (2 tableaux + 3 CREATE en bloc `javascript`)
-- ✅ ServiceRequest (Analysis) → cases + analysis_catalog + family (3 tableaux + 3 blocs SQL)
-- ✅ ClinicalImpression → Pas d'équivalent direct (Option 1 refondue)
+### Toutes les sections de mapping de tables Radiant sont au nouveau format
+La page Notion de référence est désormais **entièrement refondue** au format 5 colonnes (Champ Radiant | Champ FHIR | Statut | Action | Note) avec bloc SQL ALTER/CREATE :
 
-### Sections restant au format ancien (3 colonnes, à refondre)
-- 2.3 ServiceRequest (Sequencing) → sequencing_experiment
-- 2.5 Observations → obs_categorical + obs_string (3 sous-tableaux)
-- 2.6 FamilyMemberHistory → family_history
-- Organization (sans numéro de section)
-- 2.9 OrganizationAffiliation
-- 2.10 Lab_additional → sample + sequencing_experiment
-- 2.11 Roles → Keycloak (texte seul)
+- ✅ Person + Patient → patient
+- ✅ Practitioner + PractitionerRole (3 tables nouvelles)
+- ✅ ServiceRequest (Analysis) → cases + request_catalog + project + family
+- ✅ ClinicalImpression → clinical_assessment (Option 1 — Option 2 aussi appliquée)
+- ✅ Observations → obs_categorical + obs_boolean (NEW) + obs_string
+- ✅ FamilyMemberHistory → family_history
+- ✅ Organization → organization
+- ✅ ServiceRequest (Sequencing) + Task → sequencing_experiment + case_has_sequencing_experiment
+- ✅ Specimen → sample
+- ✅ Task → task + task_context + task_has_document
+- ✅ DocumentReference → document
+- (callout uniquement) OrganizationAffiliation, Lab_additional, roles → Keycloak
 
 ### Prochaines étapes possibles
-- Trancher entre Option 1 et Option 2 pour ClinicalImpression
+- Trancher officiellement entre Option 1 et Option 2 pour ClinicalImpression (Option 2 est appliquée de facto dans Notion)
 - Définir le mécanisme « membre manquant » (Observation à créer)
 - Vérifier dans le code Radiant si les nouvelles tables de codes utilisent ou non le suffix `_code`
 - Confirmer le nom de la table de codes pour `relationship_to_proband_code` (`family_relationship` existe déjà ; Vincent l'a appelé `relation_to_proband` dans Notion — à clarifier)
-- Refondre les sections 2.3 à 2.11 au nouveau format (tableau 5 col + bloc SQL ALTER/CREATE)
+- Répondre aux questions de Vincent restées dans les notes Notion (case_type_code, orderDetail, primary_condition*)
 - Préparer un script de migration global rassemblant tous les ALTER/CREATE proposés
 - Commencer les scripts de migration des données (Phase 2 du plan)
+- Aborder les GAPs non encore traités (Observation.focus, RelatedPerson, DDM/âge gestationnel, lien mère↔fœtus, OrganizationAffiliation)
